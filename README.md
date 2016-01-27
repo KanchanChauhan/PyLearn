@@ -12,8 +12,12 @@ At the end it shows the report and sends out an email with PDF version of the re
 
 Some of the functionalities covered are:
 
-Using SQLite (Create database, table, save and query data)
-Perform AJAX request and return JSON as response
-Generating PDF
-Sending email with attachment
-Some validations
+* Using SQLite (Create database, table, save and query data)
+
+* Perform AJAX request and return JSON as response
+
+* Generating PDF
+
+* Sending email with attachment
+
+* Some validations
