@@ -7,6 +7,8 @@ from pdfs import create_pdf
 
 # create application
 app = Flask(__name__)
+
+#Mail server configuration 
 app.config.from_object('config')
 app.config.update(MAIL_SERVER='smtp.gmail.com')
 mail = Mail(app)
