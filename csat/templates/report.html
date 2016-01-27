@@ -12,7 +12,7 @@
         <table> 
         <tr> 
         <th>Attribute</th> 
-        <th>Importantance</th> 
+        <th>Importance</th> 
         </tr>
         <tr> 
         <td>Overall quality</td> 
@@ -33,6 +33,7 @@
         </table>
         {% endfor %}
         <br>
+        {% if error %}<p class="error"><strong>Error:</strong> {{ error }}{% endif %}
         <form action="{{ url_for('send_report') }}" method="post" class="add-entry">
         <input type="text" name="email_id" placeholder="Enter Email ID">
         <input type="submit" value="Send Report" style="margin:auto;display:block;"/>

@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
+{% if error %}<p class="error"><strong>Error:</strong> {{ error }}{% endif %}
   {% if session.logged_in %}
     <form action="{{ url_for('save_attr_importance') }}" method="post" class="add-entry">
       <table> 
