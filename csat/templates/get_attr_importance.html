@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('save_attr_importance') }}" method="post" class="add-entry">
+      <table> 
+        <tr> 
+        <th> </th> 
+        <th>Not Important</th> 
+        <th>Somewhat Important</th> 
+        <th>Very Important</th> 
+        </tr>
+        <tr> 
+        <td>Overall quality</td> 
+        <td><input type="radio" name="quality_imp" value="Not Important"></td> 
+        <td><input type="radio" name="quality_imp" value="Somewhat Important"></td> 
+        <td><input type="radio" name="quality_imp" value="Very Important"></td> 
+        </tr>
+        <tr> 
+        <td>Value</td> 
+        <td><input type="radio" name="value_imp" value="Not Important"></td> 
+        <td><input type="radio" name="value_imp" value="Somewhat Important"></td> 
+        <td><input type="radio" name="value_imp" value="Very Important"></td> 
+        </tr>
+        <tr> 
+        <td>Purchase experience</td> 
+        <td><input type="radio" name="purchase_imp" value="Not Important"></td> 
+        <td><input type="radio" name="purchase_imp" value="Somewhat Important"></td> 
+        <td><input type="radio" name="purchase_imp" value="Very Important"></td> 
+        </tr>
+        <tr> 
+        <td>Usage experience</td> 
+        <td><input type="radio" name="usage_imp" value="Not Important"></td> 
+        <td><input type="radio" name="usage_imp" value="Somewhat Important"></td> 
+        <td><input type="radio" name="usage_imp" value="Very Important"></td> 
+        </tr>
+      </table>
+      <input type="text" name="avg_score"  hidden="true" value={{avg_score}}>
+      <input type="text" name="feedback"  hidden="true" value={{feedback}}>
+      <input type="submit" value="SUBMIT" style="margin:auto;display:block;"/>
+    </form>
+  {% endif %}
+{% endblock %} 

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('save_feedback') }}" method="post" class="add-entry">
+    	<ul class="entries">
+      {% if avg_score < 5 %}
+      <p>We are sorry to know that your overall satisfaction with the product is low, please let us know what can we do to improve it. </p><textarea rows="5" cols="40" name="feedback"></textarea>
+      {% else %}
+      <p>We are happy to know that you are satisfied with the product, any type of feedback will be helpfull.</p><textarea rows="5" cols="40" name="feedback"></textarea>
+      {% endif %}  
+      <input type="text" name="avg_score" value={{avg_score}}>
+      <input type="submit" value="SUBMIT" style="margin:auto;display:block;"/>
+      </ul>  	 
+    </form>
+  {% endif %}
+{% endblock %} 

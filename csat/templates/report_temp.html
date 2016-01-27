@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+    {% block body %}
+        <h2>Customer Satisfaction: Product</h2>
+        {% for entry in entries %}
+        <h2>Your Overall Satisfaction Score is : {{ entry.avg_score }}</h2>{{ entry.feedback }}
+        <table> 
+        <tr> 
+        <th>Attribute</th> 
+        <th>Importantance</th> 
+        </tr>
+        <tr> 
+        <td>Overall quality</td> 
+        <td>{{ entry.quality_imp }}</td> 
+        </tr>
+        <tr> 
+        <td>Value</td> 
+        <td>{{ entry.value_imp }}</td> 
+        </tr>
+        <tr> 
+        <td>Purchase experience</td> 
+        <td>{{ entry.purchase_imp }}</td> 
+        </tr>
+        <tr> 
+        <td>Usage experience</td> 
+        <td>{{ entry.usage_imp }}</td> 
+        </tr>
+        </table>
+        {% endfor %}
+    {% endblock %}
+    </body>
+</html>

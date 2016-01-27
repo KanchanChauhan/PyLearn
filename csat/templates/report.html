@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+    {% block body %}
+        {% if session.logged_in %}
+        <h1>Customer Satisfaction: Product</h1>
+        {% for entry in entries %}
+        <p>Your Overall Satisfaction Score is : {{ entry.avg_score }}</p>
+        {{ entry.feedback }}
+        <table> 
+        <tr> 
+        <th>Attribute</th> 
+        <th>Importantance</th> 
+        </tr>
+        <tr> 
+        <td>Overall quality</td> 
+        <td>{{ entry.quality_imp }}</td> 
+        </tr>
+        <tr> 
+        <td>Value</td> 
+        <td>{{ entry.value_imp }}</td> 
+        </tr>
+        <tr> 
+        <td>Purchase experience</td> 
+        <td>{{ entry.purchase_imp }}</td> 
+        </tr>
+        <tr> 
+        <td>Usage experience</td> 
+        <td>{{ entry.usage_imp }}</td> 
+        </tr>
+        </table>
+        {% endfor %}
+        <br>
+        <form action="{{ url_for('send_report') }}" method="post" class="add-entry">
+        <input type="text" name="email_id" placeholder="Enter Email ID">
+        <input type="submit" value="Send Report" style="margin:auto;display:block;"/>
+        </form>
+        {% endif %}
+    {% endblock %}
+    </body>
+</html>

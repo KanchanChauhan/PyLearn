@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <script type=text/javascript>
+    $(function() {
+      $(".slider").bind('click', function() {
+        $.getJSON('/_calculate_avg', {
+          quality_score: $('input[name="quality_score"]').val(),
+          value_score: $('input[name="value_score"]').val(),
+          purchase_exp_score: $('input[name="purchase_exp_score"]').val(),
+          usage_exp_score: $('input[name="usage_exp_score"]').val()
+        }, function(data) {
+          $("#result").text(data.result);
+          $('input[name="avg_score"]').val(data.result);
+        });
+        return false;
+      });
+    });
+  </script>
+  </head>
+{% extends "layout.html" %}
+{% block body %}
+{% if error %}<p class="error"><strong>Error:</strong> {{ error }}{% endif %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('get_feedback') }}" method="post" class="add-entry">
+      <p>Please rank the product performance on scale of 1 to 10?</p>
+        Overall quality <input type="range" class="slider" name="quality_score" min="1" max="10" onchange="this.setAttribute('value',this.value);" >
+        Value <input type="range" class="slider" name="value_score" min="1" max="10" onchange="this.setAttribute('value',this.value);" >
+        Purchase experience <input type="range" class="slider" name="purchase_exp_score" min="1" max="10" onchange="this.setAttribute('value',this.value);" >
+        Usage experience <input type="range" class="slider" name="usage_exp_score" min="1" max="10" onchange="this.setAttribute('value',this.value);" >
+        <p>Average Product Performance:</p> <span id="result"></span>
+        <input type="text" name="avg_score" hidden="true" value="0">
+        <input type="submit" value="SUBMIT" style="margin:auto;display:block;"/>
+    </form>
+  {% endif %}
+{% endblock %}
