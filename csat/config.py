@@ -10,5 +10,5 @@ SERVER = 'smtp.gmail.com'
 MAIL_PORT = 465
 MAIL_USE_SSL = True
 MAIL_USE_TLS = False
-MAIL_USERNAME = 'angel143.dr@gmail.com'
-MAIL_PASSWORD = 'deviramdamseth'
+MAIL_USERNAME = ''
+MAIL_PASSWORD = ''
