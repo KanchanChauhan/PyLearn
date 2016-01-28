@@ -106,7 +106,7 @@ def send_report():
     else:    
         create_pdf(render_template('report_temp.html', entries=entries))
         msg = Message('Hello',
-                  sender='csat.flask@gmail.com',
+                  sender=app.config['MAIL_USERNAME'],
                   recipients=[email_id])
         msg.body = "Please find your Product Satisfactory Report in attachment."
         with app.open_resource("test.pdf") as fp:
