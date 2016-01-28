@@ -24,7 +24,7 @@ Some of the functionalities covered are:
 
 How to run it:
 
-Assuming you already have Flask installed and virtual environment setup, you just need to change the directory and run it.
+You should have Flask, Flask-mail and xhtml2pdf installed then you just need to change the directory and run it.
 
 $ cd PyLearn/csat
 
