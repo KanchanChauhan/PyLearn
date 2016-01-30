@@ -43,7 +43,7 @@ def close_db_connection(exception):
 @app.route('/')
 def index():
     #homepage
-    return render_template('get_score.html')
+    return render_template('login.html')
 
 
 @app.route('/_calculate_avg')
